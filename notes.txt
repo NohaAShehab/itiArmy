@@ -1,0 +1,52 @@
+1- route names
+Route::view("/css","testcss")->name("mytestcss");
+
+
+2- blade template inheritance
+---
+
+3- Controller
+
+Model  view controller
+View ---> html components ---> user interface
+Controller---> Most of logic is done in the controller
+Controller ---> PHP class
+------------
+Artisan tool--> simplify process
+
+to create controller
+1- php artisan make:controller controllername
+#### move the logic from web.php to The controller
+
+##### Connection to --> database ---> get data from model
+
+---- Connection to databases are constructed through ORM
+Elequent ORM ---> Object relational mapping
+
+communicate with database using migration files
+ --> version control for the database
+--> laravel create by default migration files -->
+
+
+!- once you added database connection parameters to .env
+then run php artisan migrate
+
+
+### create student table
+run the command  php artisan make:migration create_students_table
+will create migrationfile
+
+
+
+
+
+
+
+
+
+
+
+
+## tinker
+
+
