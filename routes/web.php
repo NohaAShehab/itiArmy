@@ -59,18 +59,36 @@ Route::get("/mostafaprofile", function (){
 //Route::get("/students/{name}",
 //    [StudentController::class,"getStudent"])
 //    ->name("studentprofile");
+
+Route::get("/students/create",
+    [StudentController::class, "create"])->name("student.create");
+
 Route::get("/students/{id}",
     [StudentController::class,"getStudentById"])
     ->name("studentprofile");
 
-Route::get("/test/{id}",
-    [StudentController::class,"testfunction"]);
+### route to add new student
+Route::post("/students/save",[StudentController::class,"store"])
+    ->name("student.store");
 
 Route::get("/students", [StudentController::class,"index"])
     ->name("studentsindex");
+Route::delete("/students/{id}/delete", [StudentController::class,"destory"])
+    ->name("student.delete");
+
+Route::get("/students/{id}/edit",
+    [StudentController::class, "edit"])->name("student.edit");
+
+Route::put("/students/{id}/update",
+    [StudentController::class,"update"])->name("student.update");
+
+Route::get("/test/{id}",
+    [StudentController::class,"testfunction"]);
+
 
 Route::view("/css","testcss")->name("mytestcss");
 Route::view("/aboutus","aboutus")->name("aboutus");
+
 #########################################
 
 

@@ -36,6 +36,39 @@ then run php artisan migrate
 run the command  php artisan make:migration create_students_table
 will create migrationfile
 
+##############################
+Day03
+
+use laravel to send data from applicatio the database
+---> database record is represented as an object
+
+$s = new Student();
+$s->studentname ="Army";
+$s->grade = 1000;
+$s->absent= 0;
+$s->img = 'img2.jpg';
+
+$s = {
+"studentname":"Army"
+}
+
+############################
+Route, view, controller
+
+
+
+# http requests --->
+Request mehtods
+GET --> display page structure--> data
+POST --> send new data to the server --> post request
+Put/Patch ---> request method ---> Update existing data
+delete ---> delete data
+
+
+_token: UxhpjTlFNN2RqFsceVroUejzJhC8ZYg02tqstrv0
+studentname: jkhjkh
+img: kljklj
+grade: 665
 
 
 
@@ -47,6 +80,11 @@ will create migrationfile
 
 
 
-## tinker
+
+
+
+
+
+
 
 

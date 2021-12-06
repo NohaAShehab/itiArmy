@@ -22,8 +22,13 @@
                     <a class="nav-link" href="{{route("mytestcss")}}">testcss</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route("student.create")}}">Add Student</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="{{route("aboutus")}}">About us</a>
                 </li>
+
 
 
             </ul>
