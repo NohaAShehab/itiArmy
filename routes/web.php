@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CourseController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,10 +93,36 @@ Route::view("/aboutus","aboutus")->name("aboutus");
 
 #########################################
 
+# add new route
+Route::get("/cache",function (){
+    return "Hello cache";
+});
 
 
+######################3 courses routes
+Route::resource("courses",CourseController::class);
 
-
+//Route::get("/courses/create",[CourseController::class,"create"])
+//    ->name("course.create");
+//
+//Route::post("/courses",[CourseController::class,"store"])
+//    ->name("course.store");
+//
+//Route::get("/courses",[CourseController::class,"index"])
+//    ->name("course.index");
+//
+//Route::get("/courses/{course}",[CourseController::class,"show"])
+//    ->name("course.show");
+//
+//
+//Route::get("/courses/{course}/edit",[CourseController::class,"edit"])
+//    ->name("course.edit");
+//
+//Route::put("/courses/{course}",[CourseController::class,"update"])
+//    ->name("course.update");
+//
+//Route::delete("/courses/{course}",[CourseController::class,"destroy"])
+//    ->name("course.destory");
 
 
 
