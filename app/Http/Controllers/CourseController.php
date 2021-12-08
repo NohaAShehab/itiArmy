@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Providers\AuthServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 use App\Models\Course;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Reference;
 
@@ -14,6 +18,11 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+//        $this->middleware("auth")->except(["index","show"]);
+        $this->middleware("auth")->only(["store","update","destroy"]);
+
+    }
     public function index()
     {
         //
@@ -29,6 +38,7 @@ class CourseController extends Controller
     public function create()
     {
         //
+
         return view("courses.create");
     }
 
@@ -49,7 +59,8 @@ class CourseController extends Controller
 //        $c->desc = $request->desc;
 //        $c->maxgrade= $request->maxgrade;
 //        $c->save();
-
+        $user= Auth::user();
+        dump($user);
         $request->validate([
             "name"=>"required|min:5",
             "maxgrade"=>"integer|gt:1"
@@ -59,6 +70,7 @@ class CourseController extends Controller
             "desc"=>$request->desc,
             "maxgrade"=>$request->maxgrade,
             "frameworks"=>"laravel",
+            "user_id"=>$user->id,
             "day"=>"Tuesday"
         ]);
         return redirect()->route("courses.index");
@@ -72,9 +84,9 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
-//        dump($course);
-        return view("courses.show",["mycourse"=>$course]);
+        # get username of the course_owner
+//        $user = User::find($course->user_id);
+        return view("courses.show",["mycourse"=>$course],);
     }
 
     /**
@@ -98,6 +110,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
+        $user =Auth::user();
+
         $request->validate([
             "name"=>"required|min:5",
             "maxgrade"=>"integer|gt:1"
@@ -106,8 +120,9 @@ class CourseController extends Controller
         $course->update([
            "name"=>$request->name,
            "desc"=>$request->desc,
-           "maxgrade"=>$request->maxgrade
+           "maxgrade"=>$request->maxgrade,
         ]);
+
         return redirect()->route("courses.show",$course);
     }
 

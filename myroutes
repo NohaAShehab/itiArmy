@@ -1,0 +1,50 @@
++--------+-----------+------------------------+------------------+------------------------------------------------------------------------+---------------------------------------------+
+| Domain | Method    | URI                    | Name             | Action                                                                 | Middleware                                  |
++--------+-----------+------------------------+------------------+------------------------------------------------------------------------+---------------------------------------------+
+|        | GET|HEAD  | /                      |                  | Closure                                                                | web                                         |
+|        | GET|HEAD  | aboutus                | aboutus          | Illuminate\Routing\ViewController                                      | web                                         |
+|        | GET|HEAD  | api/user               |                  | Closure                                                                | api                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\Authenticate:sanctum    |
+|        | GET|HEAD  | army                   |                  | Closure                                                                | web                                         |
+|        | GET|HEAD  | armytest               |                  | Closure                                                                | web                                         |
+|        | GET|HEAD  | cache                  |                  | Closure                                                                | web                                         |
+|        | GET|HEAD  | contactusurl           |                  | Illuminate\Routing\ViewController                                      | web                                         |
+|        | POST      | courses                | courses.store    | App\Http\Controllers\CourseController@store                            | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\Authenticate            |
+|        | DELETE    | courses/{course}       | courses.destroy  | App\Http\Controllers\CourseController@destroy                          | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\Authenticate            |
+|        | PUT|PATCH | courses/{course}       | courses.update   | App\Http\Controllers\CourseController@update                           | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\Authenticate            |
+|        | GET|HEAD  | css                    | mytestcss        | Illuminate\Routing\ViewController                                      | web                                         |
+|        | GET|HEAD  | hamdyprofile           |                  | Closure                                                                | web                                         |
+|        | GET|HEAD  | home                   | home             | App\Http\Controllers\HomeController@index                              | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\Authenticate            |
+|        | GET|HEAD  | login                  | login            | App\Http\Controllers\Auth\LoginController@showLoginForm                | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\RedirectIfAuthenticated |
+|        | POST      | login                  |                  | App\Http\Controllers\Auth\LoginController@login                        | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\RedirectIfAuthenticated |
+|        | POST      | logout                 | logout           | App\Http\Controllers\Auth\LoginController@logout                       | web                                         |
+|        | GET|HEAD  | mostafaprofile         |                  | Closure                                                                | web                                         |
+|        | GET|HEAD  | myarray                |                  | Closure                                                                | web                                         |
+|        | POST      | password/confirm       |                  | App\Http\Controllers\Auth\ConfirmPasswordController@confirm            | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\Authenticate            |
+|        | GET|HEAD  | password/confirm       | password.confirm | App\Http\Controllers\Auth\ConfirmPasswordController@showConfirmForm    | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\Authenticate            |
+|        | POST      | password/email         | password.email   | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web                                         |
+|        | POST      | password/reset         | password.update  | App\Http\Controllers\Auth\ResetPasswordController@reset                | web                                         |
+|        | GET|HEAD  | password/reset         | password.request | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web                                         |
+|        | GET|HEAD  | password/reset/{token} | password.reset   | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web                                         |
+|        | GET|HEAD  | register               | register         | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\RedirectIfAuthenticated |
+|        | POST      | register               |                  | App\Http\Controllers\Auth\RegisterController@register                  | web                                         |
+|        |           |                        |                  |                                                                        | App\Http\Middleware\RedirectIfAuthenticated |
+|        | GET|HEAD  | sanctum/csrf-cookie    |                  | Laravel\Sanctum\Http\Controllers\CsrfCookieController@show             | web                                         |
+|        | GET|HEAD  | students               | studentsindex    | App\Http\Controllers\StudentController@index                           | web                                         |
+|        | GET|HEAD  | students/create        | student.create   | App\Http\Controllers\StudentController@create                          | web                                         |
+|        | POST      | students/save          | student.store    | App\Http\Controllers\StudentController@store                           | web                                         |
+|        | GET|HEAD  | students/{id}          | studentprofile   | App\Http\Controllers\StudentController@getStudentById                  | web                                         |
+|        | DELETE    | students/{id}/delete   | student.delete   | App\Http\Controllers\StudentController@destory                         | web                                         |
+|        | GET|HEAD  | students/{id}/edit     | student.edit     | App\Http\Controllers\StudentController@edit                            | web                                         |
+|        | PUT       | students/{id}/update   | student.update   | App\Http\Controllers\StudentController@update                          | web                                         |
+|        | GET|HEAD  | test/{id}              |                  | App\Http\Controllers\StudentController@testfunction                    | web                                         |
++--------+-----------+------------------------+------------------+------------------------------------------------------------------------+---------------------------------------------+

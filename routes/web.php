@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -100,7 +102,18 @@ Route::get("/cache",function (){
 
 
 ######################3 courses routes
-Route::resource("courses",CourseController::class);
+
+
+Route::resource("/courses",
+    CourseController::class);
+
+
+Route::get("/userCourses/{user}",[UserController::class,"getCourse"])
+    ->name("usercourses");
+//
+//Route::group(['middleware' => 'auth'], function() {
+//
+//});
 
 //Route::get("/courses/create",[CourseController::class,"create"])
 //    ->name("course.create");
@@ -124,11 +137,7 @@ Route::resource("courses",CourseController::class);
 //Route::delete("/courses/{course}",[CourseController::class,"destroy"])
 //    ->name("course.destory");
 
+Auth::routes(); #login , regirster, forget password
 
-
-
-
-
-
-
-
+Route::get('/home', [App\Http\Controllers\HomeController::class,
+    'index'])->name('home');

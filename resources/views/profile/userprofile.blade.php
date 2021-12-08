@@ -1,4 +1,4 @@
-@extends("layouts/app")
+@extends("layouts/myapp")
 
 @section("contentblock")
 <h1> My Profile </h1>

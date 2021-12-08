@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Course;
+use App\Http\Controllers\API\CourseController as apiController;
+use App\Http\Controllers\API\CoursesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get("/testapi",function (){
+    return ["name"=>"noha"];
+});
+
+
+//Route::get("/courses",function (){
+//    return Course::all();
+//});
+
+//Route::get("/courses",[apiController::class,"index"]);
+
+Route::apiResource("apicourses",CoursesController::class);

@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.myapp")
 
 
 @section("myfirstblock")
@@ -18,6 +18,16 @@
         <tr>
             <td>Max grade</td>
             <td> {{$mycourse->maxgrade}}</td>
+        </tr>
+{{--        <tr>--}}
+{{--            <td>Course owner</td>--}}
+{{--            <td> {{$user->name}}</td>--}}
+{{--        </tr>--}}
+
+        <tr>
+            <td>From the relation</td>
+{{--            <td> @dump($mycourse->user)</td>--}}
+            <td> <a href="{{route("usercourses",$mycourse->user)}}"> {{$mycourse->user->name}} </a></td>
         </tr>
         <tr>
             <td>Created at</td>

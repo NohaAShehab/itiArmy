@@ -1,0 +1,24 @@
+1- Install user authentication modules provided by laravel
+ (laravel/ui laravel07)
+
+ composer require laravel/ui
+ php artisan ui bootstrap --auth
+
+ ---> do you want layouts/app.blade.php ? Yes
+
+2- one to many relationship
+each course has an owner , owner has many courses
+
+Relation 1 to many
+
+
+3- APIS
+Done
+
+######### Authorization
+some of authenticated users are allowed to do something
+Policy, Gate, Auth provider
+
+4- install authentication module laravel8
+
+5- laravel sanctum

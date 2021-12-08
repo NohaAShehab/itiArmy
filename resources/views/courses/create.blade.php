@@ -1,4 +1,4 @@
-@extends("layouts/app")
+@extends("layouts/myapp")
 
 @section("myfirstblock")
     <h1> Add Course </h1>

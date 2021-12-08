@@ -1,5 +1,5 @@
 
-@extends("layouts/app")
+@extends("layouts/myapp")
 
 @section("myfirstblock")
     <h1> Edit Student </h1>
